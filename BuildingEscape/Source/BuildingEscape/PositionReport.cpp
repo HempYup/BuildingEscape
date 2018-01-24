@@ -11,6 +11,7 @@ UPositionReport::UPositionReport()
 	PrimaryComponentTick.bCanEverTick = true;
 
 	// ...
+
 }
 
 
@@ -20,6 +21,11 @@ void UPositionReport::BeginPlay()
 	Super::BeginPlay();
 
 	// ...
+	UE_LOG(LogTemp, Warning, TEXT("Position report reporting for duty on Chair!")); 
+	// Logs, Printing Messages to yourself during runtime (UE4 Wiki Tutorial)
+	//UE_LOG is a macro.
+	//Log coloring goes like this: Log(GREY COLOR) = Log | Log(YELLOW) = Warning | Log(RED) = Error. Here we are using Warning.
+	//TEXT is another macro, which takes in a string.
 	
 }
 
