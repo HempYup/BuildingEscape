@@ -24,7 +24,8 @@ void UPositionReport::BeginPlay()
 	// ...
 	
 	FString ObjectName = GetOwner()->GetName();
-	UE_LOG(LogTemp, Warning, TEXT("Position report for %s"), *ObjectName);
+	FString ObjectPos = GetOwner()->GetActorLocation().ToString();
+	UE_LOG(LogTemp, Warning, TEXT("%s is at %s"), *ObjectName, *ObjectPos);
 
 
 	// UE_LOG(LogTemp, Warning, TEXT("Position report reporting for duty on Chair!")); 
