@@ -20,9 +20,6 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-private:
-	float Reach = 100.f;
-
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;

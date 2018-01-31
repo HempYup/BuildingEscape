@@ -76,8 +76,7 @@ DerivedDataCache/*
 
 StarterContent/*
 BuildingEscape/Binaries/
-BuildingEscape/Content/StarterContent/Textures
-BuildingEscape/Content/StarterContent/HDRI
+BuildingEscape/Content/StarterContent/
 BuildingEscape/Intermediate/
 BuildingEscape/Saved/
 
