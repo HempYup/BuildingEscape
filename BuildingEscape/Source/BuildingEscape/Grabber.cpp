@@ -37,24 +37,30 @@ void UGrabber::BeginPlay()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("%s Physics Handle is missing!"),*GetOwner()->GetName());
 	}
-	/// Look for attached input component
+	/// Look for attached input component for Grabbing
 	InputComponent = GetOwner()->FindComponentByClass<UInputComponent>();
 	if (InputComponent)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("%s Input Component is found!"), *GetOwner()->GetName());
 		/// Bind the input axis
 		InputComponent->BindAction("Grab", IE_Pressed, this, &UGrabber::Grab);
+		InputComponent->BindAction("Grab", IE_Released, this, &UGrabber::Release);
 	}
 	else
 	{
 		UE_LOG(LogTemp, Warning, TEXT("%s Input Component is missing!"), *GetOwner()->GetName());
 	}
 
+
 }
 
 void UGrabber::Grab()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Grab Pressed"));
+}
+void UGrabber::Release()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Grab Released"));
 }
 
 // Called every frame
@@ -81,9 +87,6 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 	{
 		UE_LOG(LogTemp, Warning, TEXT("LineTraceHit is hitting: %s"), *(ActorHit->GetName()));
 	}
-
-	// line-cast out to reach distance
-	// See what we hit
 
 }
 
