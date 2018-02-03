@@ -13,28 +13,23 @@ UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class BUILDINGESCAPE_API UGrabber : public UActorComponent
 {
 	GENERATED_BODY()
-
 public:	
-	// Sets default values for this component's properties
-	UGrabber();
-
+	UGrabber(); /// Sets default values for this component's properties
 protected:
-	// Called when the game starts
-	virtual void BeginPlay() override;
-
+	virtual void BeginPlay() override;	/// Called when the game starts
 private:
 	float Reach = 100.f;
+	void FindPhysicsHandleComponent(); /// find attached physics handle component
 	UPhysicsHandleComponent* PhysicsHandle = nullptr;
 	UInputComponent* InputComponent = nullptr;
-	/// Ray-cast and grab what's in reach
-	void Grab();
-	/// Called when grab is released
-	void Release();
+	void Grab(); /// Ray-cast and grab what's in reach
+	void Release(); /// Called when grab is released
+	void SetupInputComponent(); /// Setup (assumed) attached input component
+
+	// Return hit for first physics body in reach
+	FHitResult GetFirstPhysicsBodyInReach() const;
 
 public:	
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override; /// Called every frame
 
-		
-	
 };
