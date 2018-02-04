@@ -28,6 +28,8 @@ private:
 
 	// Return hit for first physics body in reach
 	FHitResult GetFirstPhysicsBodyInReach() const;
+	// Return begin and end of trace
+	FTwoVectors GetLineTracePoints() const;
 
 public:	
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override; /// Called every frame
