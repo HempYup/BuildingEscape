@@ -50,7 +50,9 @@ void UGrabber::Grab()
 	auto HitResult = GetFirstPhysicsBodyInReach(); /// LINE TRACE and see if we reach any actors with physics body collision channel set
 	auto ComponentToGrab = HitResult.GetComponent();
 	auto ActorHit = HitResult.GetActor();
-	if (ActorHit) {	PhysicsHandle->GrabComponentAtLocationWithRotation(
+	if (ActorHit) {
+		if (!PhysicsHandle) { return; }
+		PhysicsHandle->GrabComponentAtLocationWithRotation(
 		ComponentToGrab,
 		NAME_None,
 		ComponentToGrab->GetOwner()->GetActorLocation(),
@@ -59,6 +61,7 @@ void UGrabber::Grab()
 
 void UGrabber::Release()
 {
+	if (!PhysicsHandle) { return; }
 	PhysicsHandle->ReleaseComponent();
 }
 
